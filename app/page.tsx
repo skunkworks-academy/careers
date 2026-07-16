@@ -37,7 +37,10 @@ export default function HomePage() {
           <span className="brandMark">S</span>
           <span>Skunkworks Academy Careers</span>
         </a>
-        <a className="signIn" href="/auth/sign-in/">Candidate sign in</a>
+        <nav className="headerActions" aria-label="Candidate navigation">
+          <a className="signIn" href="/workspace/">My workspace</a>
+          <a className="signIn" href="/auth/sign-in/">Candidate sign in</a>
+        </nav>
       </header>
 
       <section className="hero">
@@ -52,7 +55,7 @@ export default function HomePage() {
           </div>
           <div className="heroActions">
             <a className="primaryLink" href="/assessment/">Start career assessment</a>
-            <a className="secondaryLink" href="#registration-heading">Create candidate profile</a>
+            <a className="secondaryLink" href="/workspace/">Open candidate workspace</a>
           </div>
         </div>
 
@@ -63,7 +66,10 @@ export default function HomePage() {
             <div className="success" role="status">
               <strong>Candidate profile prepared.</strong>
               <p>Your registration has been saved in this browser for the MVP. Continue to the full Career Growth and Learning Assessment.</p>
-              <a className="primaryLink" href="/assessment/">Continue to assessment</a>
+              <div className="heroActions">
+                <a className="primaryLink" href="/assessment/">Continue to assessment</a>
+                <a className="secondaryLink" href="/workspace/">View workspace</a>
+              </div>
               <button type="button" className="textButton" onClick={() => { setSubmitted(false); setForm(initialForm); }}>Register another candidate</button>
             </div>
           ) : (
