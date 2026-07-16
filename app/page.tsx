@@ -26,6 +26,7 @@ export default function HomePage() {
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    window.localStorage.setItem('swa-candidate-registration-v1', JSON.stringify({ ...form, registeredAt: new Date().toISOString() }));
     setSubmitted(true);
   }
 
@@ -36,7 +37,7 @@ export default function HomePage() {
           <span className="brandMark">S</span>
           <span>Skunkworks Academy Careers</span>
         </a>
-        <a className="signIn" href="/auth/sign-in">Candidate sign in</a>
+        <a className="signIn" href="/auth/sign-in/">Candidate sign in</a>
       </header>
 
       <section className="hero">
@@ -49,6 +50,10 @@ export default function HomePage() {
           <div className="journey" aria-label="Candidate journey">
             <span>Register</span><span>Assess</span><span>Analyse</span><span>Consult</span><span>Learn</span><span>Certify</span>
           </div>
+          <div className="heroActions">
+            <a className="primaryLink" href="/assessment/">Start career assessment</a>
+            <a className="secondaryLink" href="#registration-heading">Create candidate profile</a>
+          </div>
         </div>
 
         <section className="panel" aria-labelledby="registration-heading">
@@ -56,9 +61,10 @@ export default function HomePage() {
           <h2 id="registration-heading">Candidate registration</h2>
           {submitted ? (
             <div className="success" role="status">
-              <strong>Registration captured for MVP demonstration.</strong>
-              <p>The production workflow will create your candidate record and send a secure assessment invitation.</p>
-              <button type="button" onClick={() => { setSubmitted(false); setForm(initialForm); }}>Register another candidate</button>
+              <strong>Candidate profile prepared.</strong>
+              <p>Your registration has been saved in this browser for the MVP. Continue to the full Career Growth and Learning Assessment.</p>
+              <a className="primaryLink" href="/assessment/">Continue to assessment</a>
+              <button type="button" className="textButton" onClick={() => { setSubmitted(false); setForm(initialForm); }}>Register another candidate</button>
             </div>
           ) : (
             <form onSubmit={submit}>
@@ -84,7 +90,7 @@ export default function HomePage() {
                 <span>I consent to Skunkworks Academy processing my information for career assessment and learning-path recommendations.</span>
               </label>
               <button className="primary" type="submit">Create candidate profile</button>
-              <p className="finePrint">Authentication will be provided through Microsoft Entra External ID before production launch.</p>
+              <p className="finePrint">The production identity layer will use Microsoft Entra External ID. This deployed MVP stores drafts only in the candidate&apos;s browser.</p>
             </form>
           )}
         </section>
