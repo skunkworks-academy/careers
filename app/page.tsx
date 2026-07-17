@@ -23,6 +23,7 @@ const initialForm: Registration = {
 export default function HomePage() {
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [navigationOpen, setNavigationOpen] = useState(false);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -32,14 +33,33 @@ export default function HomePage() {
 
   return (
     <main>
-      <header className="siteHeader">
-        <a className="brand" href="https://skunkworksacademy.com" aria-label="Skunkworks Academy home">
-          <span className="brandMark">S</span>
-          <span>Skunkworks Academy Careers</span>
+      <header className="academyHeader">
+        <a className="academyBrand" href="https://www.skunkworksacademy.com/" aria-label="Skunkworks Academy home">
+          <img className="academyLogo academyLogoLight" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-black.png" alt="" width="40" height="40" />
+          <img className="academyLogo academyLogoDark" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-white.png" alt="" width="40" height="40" />
+          <span><strong>Skunkworks Academy</strong><small>Careers</small></span>
         </a>
-        <nav className="headerActions" aria-label="Candidate navigation">
-          <a className="signIn" href="/workspace/">My workspace</a>
-          <a className="signIn" href="/auth/sign-in/">Candidate sign in</a>
+        <button className="academyMenuButton" type="button" aria-label="Toggle Academy navigation" aria-expanded={navigationOpen} aria-controls="academy-navigation" onClick={() => setNavigationOpen((open) => !open)}>
+          <span aria-hidden="true">☰</span><span>Menu</span>
+        </button>
+        <nav id="academy-navigation" className={`academyNav ${navigationOpen ? 'academyNavOpen' : ''}`} aria-label="Skunkworks Academy navigation">
+          <a href="https://www.skunkworksacademy.com/">Home</a>
+          <a href="https://www.skunkworksacademy.com/catalogue/">Self-Paced Catalogue</a>
+          <a href="https://portal.skunkworksacademy.com/">Portal</a>
+          <a href="https://labs.skunkworksacademy.com/">Labs</a>
+          <a href="https://badging.skunkworksacademy.com/">Badging</a>
+          <a href="https://www.skunkworksacademy.com/plans-and-purchases/">Plans &amp; Purchases</a>
+          <a href="https://www.skunkworksacademy.com/forms/">Forms</a>
+          <a aria-current="page" href="/">Careers</a>
+          <a href="https://portal.skunkworksacademy.com/reports/">Reports</a>
+          <a href="https://ibm.skunkworksacademy.com/">IBM</a>
+          <a href="https://www.skunkworksacademy.com/microsoft/">Microsoft</a>
+          <a href="https://www.skunkworksacademy.com/google/">Google</a>
+          <a href="https://www.skunkworksacademy.com/redhat/">Red Hat</a>
+          <a href="https://docs.skunkworksacademy.com/">Docs</a>
+          <a href="https://publish.skunkworksacademy.com/">Publish</a>
+          <a href="https://github.com/skunkworks-academy" target="_blank" rel="noreferrer">GitHub</a>
+          <a className="academySignIn" href="/auth/sign-in/">Sign in</a>
         </nav>
       </header>
 
