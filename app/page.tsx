@@ -33,16 +33,20 @@ export default function HomePage() {
 
   return (
     <main>
-      <header className="academyHeader">
-        <a className="academyBrand" href="https://www.skunkworksacademy.com/" aria-label="Skunkworks Academy home">
-          <img className="academyLogo academyLogoLight" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-black.png" alt="" width="40" height="40" />
-          <img className="academyLogo academyLogoDark" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-white.png" alt="" width="40" height="40" />
-          <span><strong>Skunkworks Academy</strong><small>Careers</small></span>
+      <header className="topbar" data-open={navigationOpen ? 'true' : 'false'}>
+        <a className="brand" href="https://skunkworksacademy.com/" aria-label="Skunkworks Academy home">
+          <img className="brand__logo logo-light" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-black.png" alt="" width="40" height="40" />
+          <img className="brand__logo logo-dark" src="https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-white.png" alt="" width="40" height="40" />
+          <span>
+            <span className="brand__title">Skunkworks Academy</span>
+            <span className="brand__subtitle">Unified learning platform</span>
+          </span>
         </a>
-        <button className="academyMenuButton" type="button" aria-label="Toggle Academy navigation" aria-expanded={navigationOpen} aria-controls="academy-navigation" onClick={() => setNavigationOpen((open) => !open)}>
-          <span aria-hidden="true">☰</span><span>Menu</span>
+        <input className="search" type="search" placeholder="Search academy destinations, partners, courses, jobs..." aria-label="Search Academy destinations" />
+        <button className="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded={navigationOpen} onClick={() => setNavigationOpen((open) => !open)}>
+          <span aria-hidden="true">☰</span>
         </button>
-        <nav id="academy-navigation" className={`academyNav ${navigationOpen ? 'academyNavOpen' : ''}`} aria-label="Skunkworks Academy navigation">
+        <nav className="academyNav" aria-label="Skunkworks Academy navigation">
           <a href="https://www.skunkworksacademy.com/">Home</a>
           <a href="https://www.skunkworksacademy.com/catalogue/">Self-Paced Catalogue</a>
           <a href="https://portal.skunkworksacademy.com/">Portal</a>
@@ -59,7 +63,6 @@ export default function HomePage() {
           <a href="https://docs.skunkworksacademy.com/">Docs</a>
           <a href="https://publish.skunkworksacademy.com/">Publish</a>
           <a href="https://github.com/skunkworks-academy" target="_blank" rel="noreferrer">GitHub</a>
-          <a className="academySignIn" href="/auth/sign-in/">Sign in</a>
         </nav>
       </header>
 
