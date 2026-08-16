@@ -4,7 +4,7 @@ import './globals.css';
 
 const academyLogo = 'https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-black.png';
 const academyLogoDark = 'https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-white.png';
-const academyShell = 'https://skunkworksacademy.com/assets/academy-navigation.js?v=2026.08.15.2';
+const academyShell = 'https://skunkworksacademy.com/assets/academy-navigation.js?v=2026.08.15.1';
 
 export const metadata: Metadata = {
   title: 'Skunkworks Academy Careers',
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-ZA">
       <body>
         {children}
-        <Script src={academyShell} strategy="afterInteractive" data-skunkworks-global-shell="2026.08.15.2" />
+        <Script src={academyShell} strategy="afterInteractive" data-skunkworks-global-nav="v10" />
       </body>
     </html>
   );
