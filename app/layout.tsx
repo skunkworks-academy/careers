@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 
-const academyLogo = 'https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-black.png';
-const academyLogoDark = 'https://raw.githubusercontent.com/skunkworks-academy/www/refs/heads/main/images/favicon-white.png';
+const academyLogo = 'https://www.skunkworksacademy.com/images/favicon-search.png';
+const academyLogoDark = 'https://www.skunkworksacademy.com/images/favicon-search-dark.png';
 const academyShell = 'https://skunkworksacademy.com/assets/academy-navigation.js?v=2026.08.15.1';
 
 export const metadata: Metadata = {
